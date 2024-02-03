@@ -4,8 +4,6 @@ Python coding tips.
 ## Date Time & Time Zone
 There are different types of classes to deal with date time and time zones: `datetime`, `zoneinfo`, `pytz`, `pandas`.
 
-### `datetime`
-
 Use `zoneinfo` to specify the time zone of an `datetime` object, do NOT use `pytz`.
 ```
 from datetime import datetime
