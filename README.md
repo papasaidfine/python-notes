@@ -49,3 +49,25 @@ dt_pandas.to_pydatetime()
 > dt_naive = dt.replace(tzinfo=None) # convert back to naive
 > pytz.timezone('Asia/Hong_Kong').localize(dt_naive).timestamp()
 > ```
+
+
+## Python Interactive Charts
+This issue is found in Python 3.10.12 (main, Nov 20 2023, 15:14:05). In a clean Python3 environment, do `pip install matplotlib`. Matplotlib will not show the figure. The below codes reproduce the issue.
+```
+import matplotlib.pyplot as plt
+plt.plot([1,2],[1,2])
+plt.show()
+```
+```
+UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+```
+This is because the charting back end is usually "Agg" which is non-interactive. A recommended back end is "TkAgg" by module `tkinter` which suprisingly is not a dependency of `matplotlib`. To install `tkinter`, do
+```
+sudo apt install python3-tk
+```
+> [!NOTE]
+> Neither `pip install tkinter` nor `pip install tk` works.
+
+Another back end found in some online solutions is `PyQt5`, which does NOT work for me.
+
+
