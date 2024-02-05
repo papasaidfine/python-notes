@@ -58,6 +58,7 @@ import matplotlib.pyplot as plt
 plt.plot([1,2],[1,2])
 plt.show()
 ```
+Output:
 ```
 UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
 ```
@@ -70,4 +71,13 @@ sudo apt install python3-tk
 
 Another back end found in some online solutions is `PyQt5`, which does NOT work for me.
 
+To view the back end used by `matplotlib`
+```
+import matplotlib
+matplotlib.get_back()
+```
+To change the back end
+```
+matplotlib.use('TkAgg')
+```
 
